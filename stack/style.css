@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+}
+
+#header {
+    height: 100px;
+    position: relative;
+    background-color: crimson;
+}
+
+#title {
+    text-align: center;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+#body {
+    padding: 50px 20px 20px 20px;
+}
+
+#subheading {
+    height: 50px;
+    position: relative;
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    font-size: 24px;
+}
+
+#subheading>div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+#concept-content {
+    padding: 20px;
+}
+
+#concept-content>p {
+    padding: 10px;
+    font-size: 18px;
+    display: block;
+}
+
+#board {
+    width: calc(100% - 4px);
+    height: 500px;
+    margin: 20px auto 0;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+#show-board {
+    width: calc(100% - 44px);
+    height: calc(85% - 34px);
+    padding: 10px;
+    margin: 10px 10px 0 10px;
+    position: relative;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+#stack {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#control {
+    width: calc(100% - 40px);
+    height: calc(15% - 40px);
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    background-color: burlywood;
+    border-radius: 10px;
+}
+
+#control>* {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.node {
+    height: 40px;
+    padding: 0 10px;
+    margin: 0 20px;
+    display: inline-block;
+    position: table-cell;
+    background-color: rgb(82, 29, 40);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+}
