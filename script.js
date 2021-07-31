@@ -1,4 +1,4 @@
-const elementList = document.getElementsByClassName('list-contents');
+const elementList = document.getElementsByClassName('contents-item');
 const dataStructureKeywordList = [
     { keywords: ['stack', '스택'], verdict: 'stack' },
     { keywords: ['queue', '큐'], verdict: 'queue' },
@@ -20,19 +20,9 @@ const compareKeyword = (inputKeyword) => {
     return newStateList;
 };
 
-const isValidSearch = (dataStructureStateList) => {
-    for (let dataStructure in dataStructureStateList) {
-        if (dataStructureStateList[dataStructure]) {
-            return true;
-        }
-    }
-    return false;
-};
-
 const manageList = (dataStructureStateList) => {
     for (let dataStructure in dataStructureStateList) {
         const element = document.getElementById(dataStructure);
-
         if (dataStructureStateList[dataStructure]) {
             element.style.display = null;
         } else {
@@ -49,27 +39,18 @@ const max = (a, b) => {
     }
 };
 
-const fallback = document.getElementById('fallback');
-
 document.getElementById('search').addEventListener('keyup', () => {
-    const searchKeyword = document.getElementById('search').value.trim().toLowerCase();
+    const searchKeyword = document.querySelector('#search > input').value.trim().toLowerCase();
     const stateList = compareKeyword(searchKeyword);
 
     manageList(stateList);
-    if (isValidSearch(stateList)) {
-        fallback.style.display = 'none';
-    } else {
-        fallback.style.display = null;
-    }
 });
-
-fallback.style.display = 'none';
 
 for (let element of elementList) {
     element.addEventListener('click', () => {
         const id = element.id;
 
-        document.getElementById('search').value = "";
+        document.querySelector('#search > input').value = "";
         location.href = `${id}/${id}.html`;
     });
 }
