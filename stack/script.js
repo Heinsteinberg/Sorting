@@ -42,11 +42,6 @@ let myStack = new Stack();
 
 document.getElementById('push').addEventListener('input', () => {
     const value = document.getElementById('push').value;
-
-    if (value > 100000 || value < -100000) {
-        alert('Please make sure the number is between -100,000 and 100,000');
-        document.getElementById('push').value = null;
-    }
 });
 
 document.getElementById('push-button').addEventListener('click', () => {
