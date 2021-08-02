@@ -1,7 +1,7 @@
-#main {
-    background-image: url("Images/background.png");
-    box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.418);
-    background-size: cover;
+#background {
+    width: 100%;
+    position: fixed;
+    z-index: -1;
 }
 
 #heins {
