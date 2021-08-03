@@ -1,38 +1,38 @@
-const elementList = document.getElementsByClassName('contents-item');
-const dataStructureKeywordList = [
-    { keywords: ['stack', '스택'], verdict: 'stack' },
-    { keywords: ['queue', '큐'], verdict: 'queue' },
-    { keywords: ['list', '리스트'], verdict: 'list' },
-    { keywords: ['tree', '트리'], verdict: 'tree' },
-    { keywords: ['binary tree', '이진트리'], verdict: 'binary-tree' },
-    { keywords: ['binary search tree', '이진탐색트리'], verdict: 'binary-search-tree' },
-    { keywords: ['avltree', 'avl트리'], verdict: 'avl-tree' },
-    { keywords: ['redblacktree', '레드블랙트리'], verdict: 'red-black-tree' },
-    { keywords: ['graph', '그래프'], verdict: 'graph' },
-    { keywords: ['dfs', '깊이우선탐색'], verdict: 'dfs' },
-    { keywords: ['bfs', '너비우선탐색'], verdict: 'bfs' },
-    { keywords: ['connectedcomponents', '연결요소'], verdict: 'connected-components' },
-    { keywords: ['stronglyconnectedcomponents', '강한연결요소'], verdict: 'strongly-connected-components' },
-    { keywords: ['topological-sorting', '위상정렬'], verdict: 'topological-sorting' },
-    { keywords: ['heap', '힙'], verdict: 'heap' },
-    { keywords: ['priorityqueue', '우선순위큐'], verdict: 'priority-queue' },
-    { keywords: ['selectionsort', '선택정렬'], verdict: 'selection-sort' },
-    { keywords: ['insertionsort', '삽입정렬'], verdict: 'insertion-sort' },
-    { keywords: ['bubblesort', '버븥정렬', '버블소트'], verdict: 'bubble-sort' },
-    { keywords: ['quicksort', '퀵정렬', '퀵소트'], verdict: 'quick-sort' },
-    { keywords: ['mergesort', '병합정렬', '합병정렬', '머지정렬', '머지소트'], verdict: 'merge-sort' },
-    { keywords: ['heapsort', '힙정렬', '힙소트'], verdict: 'heap-sort' },
-    { keywords: ['radixsort', '기수정렬'], verdict: 'radix-sort' },
-    { keywords: ['hashtable', '해시테이블'], verdict: 'hash-table' },
+const elementBox = document.getElementById('contents-box');
+const dsKeywordList = [
+    { name: 'Stack', keywords: ['stack', '스택'], id: 'stack' },
+    { name: 'Queue', keywords: ['queue', '큐'], id: 'queue' },
+    { name: 'List', keywords: ['list', '리스트'], id: 'list' },
+    { name: 'Tree', keywords: ['tree', '트리'], id: 'tree' },
+    { name: 'Binary Tree', keywords: ['binary tree', '이진트리'], id: 'binary-tree' },
+    { name: 'Binary Search Tree', keywords: ['binary search tree', '이진탐색트리'], id: 'binary-search-tree' },
+    { name: 'AVL Tee', keywords: ['avltree', 'avl트리'], id: 'avl-tree' },
+    { name: 'Red-Black Tree', keywords: ['redblacktree', '레드블랙트리'], id: 'red-black-tree' },
+    { name: 'Graph', keywords: ['graph', '그래프'], id: 'graph' },
+    { name: 'DFS', keywords: ['dfs', '깊이우선탐색'], id: 'dfs' },
+    { name: 'BFS', keywords: ['bfs', '너비우선탐색'], id: 'bfs' },
+    { name: 'Connected Components', keywords: ['connectedcomponents', '연결요소'], id: 'connected-components' },
+    { name: 'Strongly Connected Components', keywords: ['stronglyconnectedcomponents', '강한연결요소'], id: 'strongly-connected-components' },
+    { name: 'Topological Sorting', keywords: ['topological-sorting', '위상정렬'], id: 'topological-sorting' },
+    { name: 'Heap', keywords: ['heap', '힙'], id: 'heap' },
+    { name: 'Priority Queue', keywords: ['priorityqueue', '우선순위큐'], id: 'priority-queue' },
+    { name: 'Selection Sort', keywords: ['selectionsort', '선택정렬'], id: 'selection-sort' },
+    { name: 'Insertion Sort', keywords: ['insertionsort', '삽입정렬'], id: 'insertion-sort' },
+    { name: 'Bubble Sort', keywords: ['bubblesort', '버븥정렬', '버블소트'], id: 'bubble-sort' },
+    { name: 'Quick Sort', keywords: ['quicksort', '퀵정렬', '퀵소트'], id: 'quick-sort' },
+    { name: 'Merge Sorts', keywords: ['mergesort', '병합정렬', '합병정렬', '머지정렬', '머지소트'], id: 'merge-sort' },
+    { name: 'Heap Sort', keywords: ['heapsort', '힙정렬', '힙소트'], id: 'heap-sort' },
+    { name: 'Radix Sort', keywords: ['radixsort', '기수정렬'], id: 'radix-sort' },
+    { name: 'Hash Table', keywords: ['hashtable', '해시테이블'], id: 'hash-table' },
 ];
 
 const compareKeyword = (inputKeyword) => {
     let newStateList = {};
-    for (let dataStructure of dataStructureKeywordList) {
-        newStateList[dataStructure.verdict] = false;
-        for (let keyword of dataStructure.keywords) {
+    for (let dsKeyword of dsKeywordList) {
+        newStateList[dsKeyword.id] = false;
+        for (let keyword of dsKeyword.keywords) {
             if (keyword.includes(inputKeyword.replace(/[^a-zA-Z가-힣]/g, ''))) {
-                newStateList[dataStructure.verdict] = true;
+                newStateList[dsKeyword.id] = true;
                 break;
             }
         }
@@ -40,10 +40,10 @@ const compareKeyword = (inputKeyword) => {
     return newStateList;
 };
 
-const manageList = (dataStructureStateList) => {
-    for (let dataStructure in dataStructureStateList) {
-        const element = document.getElementById(dataStructure);
-        if (dataStructureStateList[dataStructure]) {
+const manageList = (dsStateList) => {
+    for (let dsState in dsStateList) {
+        const element = document.getElementById(dsState);
+        if (dsStateList[dsState]) {
             element.style.display = null;
         } else {
             element.style.display = 'none';
@@ -51,13 +51,39 @@ const manageList = (dataStructureStateList) => {
     }
 };
 
+dsKeywordList.sort((a, b) => {
+    if (a.name < b.name) {
+        return -1;
+    } else if (a.name > b.name) {
+        return 1;
+    } else {
+        return 0;
+    }
+});
+
+for (let element of dsKeywordList) {
+    const newChild = document.createElement('div');
+    const image = document.createElement('img')
+    const name = document.createElement('div');
+    newChild.classList.add('contents-item');
+    newChild.classList.add('hover');
+    newChild.setAttribute('id', element.id);
+    image.classList.add('icon');
+    image.setAttribute('src', 'Images/icon.svg');
+    name.classList.add('contents-name');
+    name.innerText = element.name;
+    newChild.appendChild(image);
+    newChild.appendChild(name);
+    elementBox.appendChild(newChild);
+}
+
 document.getElementById('search').addEventListener('keyup', () => {
     const searchKeyword = document.querySelector('#search > input').value.trim().toLowerCase();
     const stateList = compareKeyword(searchKeyword);
     manageList(stateList);
 });
 
-for (let element of elementList) {
+for (let element of document.getElementsByClassName('contents-item')) {
     element.addEventListener('click', () => {
         const id = element.id;
         document.querySelector('#search > input').value = "";
