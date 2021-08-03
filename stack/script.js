@@ -19,7 +19,6 @@ class Stack {
     validatePush() {
         const nodeHeight = document.getElementsByClassName('node')[0].offsetHeight;
         const stackHeight = document.getElementById('stack').offsetHeight;
-
         if (stackHeight > nodeHeight) {
             alert('Width exceeded!');
             this.pop();
@@ -46,7 +45,6 @@ document.getElementById('push').addEventListener('input', () => {
 
 document.getElementById('push-button').addEventListener('click', () => {
     const value = document.getElementById('push').value;
-
     if (value === '') {
         alert('Input Error!');
     } else {
@@ -56,7 +54,6 @@ document.getElementById('push-button').addEventListener('click', () => {
 
 document.getElementById('pop-button').addEventListener('click', () => {
     const poppedItem = myStack.pop();
-
     if (poppedItem === false) {
         alert('Pop Error!');
     } else {}

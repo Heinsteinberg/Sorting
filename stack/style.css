@@ -42,6 +42,22 @@ section {
     text-align: justify;
 }
 
+#control {
+    width: calc(100% - 40px);
+    height: calc(15% - 40px);
+    padding: 10px;
+    margin: 10px;
+    position: relative;
+    background-color: burlywood;
+    border-radius: 10px;
+}
+
+#control>* {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 #board {
     width: calc(100% - 36px);
     height: 500px;
@@ -61,22 +77,6 @@ section {
 }
 
 #stack {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-#control {
-    width: calc(100% - 40px);
-    height: calc(15% - 40px);
-    padding: 10px;
-    margin: 10px;
-    position: relative;
-    background-color: burlywood;
-    border-radius: 10px;
-}
-
-#control>* {
     position: relative;
     top: 50%;
     transform: translateY(-50%);

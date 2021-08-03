@@ -28,7 +28,6 @@ const dataStructureKeywordList = [
 
 const compareKeyword = (inputKeyword) => {
     let newStateList = {};
-
     for (let dataStructure of dataStructureKeywordList) {
         newStateList[dataStructure.verdict] = false;
         for (let keyword of dataStructure.keywords) {
@@ -55,14 +54,12 @@ const manageList = (dataStructureStateList) => {
 document.getElementById('search').addEventListener('keyup', () => {
     const searchKeyword = document.querySelector('#search > input').value.trim().toLowerCase();
     const stateList = compareKeyword(searchKeyword);
-
     manageList(stateList);
 });
 
 for (let element of elementList) {
     element.addEventListener('click', () => {
         const id = element.id;
-
         document.querySelector('#search > input').value = "";
         location.href = `${id}/${id}.html`;
     });
