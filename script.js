@@ -2,7 +2,7 @@ const elementBox = document.getElementById('contents-box');
 const sortingList = [
     { name: 'Selection Sort', keywords: ['selectionsort', '선택정렬'], id: 'selection-sort' },
     { name: 'Bubble Sort', keywords: ['bubblesort', '버블정렬', '버블 소트'], id: 'bubble-sort' },
-    { name: 'Insertion Sort', keywords: [], id: 'insertion-sort' },
+    { name: 'Insertion Sort', keywords: ['insertionsort', '삽입정렬'], id: 'insertion-sort' },
     { name: 'Quick Sort', keywords: ['quicksort', '퀵정렬', '퀵소트'], id: 'quick-sort' },
     { name: 'Merge Sort', keywords: ['mergesort', '합병정렬', '병합정렬', '머지소트'], id: 'merge-sort' },
     { name: 'Heap Sort', keywords: ['heapsort', '힙정렬', '힙소트'], id: 'heap-sort' },
@@ -67,10 +67,10 @@ document.getElementById('search').addEventListener('keyup', () => {
     manageList(stateList);
 });
 
-for (let element of document.getElementsByClassName('contents-item')) {
-    element.addEventListener('click', () => {
-        const id = element.id;
-        document.querySelector('#search > input').value = "";
-        location.href = `${id}/${id}.html`;
+for (let sorting of sortingList) {
+    document.getElementById(sorting.id).addEventListener('click', () => {
+        const name = sorting.name.replace(/ /g, '');
+        document.querySelector('#search > input').value = '';
+        location.href = `${name}/${name.toLowerCase()}.html`;
     });
 }
