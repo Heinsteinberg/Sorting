@@ -29,7 +29,6 @@ class Stack {
             return false;
         } else {
             let deletedElement = this.top.value;
-
             this.top.appendedChild.remove();
             this.top = this.top.prev;
             return deletedElement;
@@ -46,7 +45,7 @@ document.getElementById('push').addEventListener('input', () => {
 document.getElementById('push-button').addEventListener('click', () => {
     const value = document.getElementById('push').value;
     if (value === '') {
-        alert('Input Error!');
+        alert('You need to input a number to proceed.');
     } else {
         myStack.push(value);
     }
@@ -55,6 +54,6 @@ document.getElementById('push-button').addEventListener('click', () => {
 document.getElementById('pop-button').addEventListener('click', () => {
     const poppedItem = myStack.pop();
     if (poppedItem === false) {
-        alert('Pop Error!');
+        alert('The stack is already empty.');
     } else {}
 });
